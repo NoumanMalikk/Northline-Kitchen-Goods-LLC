@@ -21,6 +21,8 @@ export const cookingMotions = [
     title: "Lift and Turn",
     description: "Turners, tongs, and flat heat surfaces.",
     href: "/shop?motion=lift-and-turn",
+    image: "/products/northline-flexible-turner-duo-2-pieces/main.webp",
+    imageAlt: "Flexible turner duo for lift and turn motion",
     filter: { processStages: ["turn", "lift"], techniques: ["sear", "griddle", "pan-fry"] },
   },
   {
@@ -28,6 +30,8 @@ export const cookingMotions = [
     title: "Stir and Fold",
     description: "Sauciers, woks, and sauce utensils.",
     href: "/shop?motion=stir-and-fold",
+    image: "/products/northline-curved-carbon-steel-wok-12-5-inch/main.webp",
+    imageAlt: "Carbon-steel wok for stir and fold motion",
     filter: { processStages: ["stir"], techniques: ["saute", "stir-fry", "sauce"] },
   },
   {
@@ -35,6 +39,8 @@ export const cookingMotions = [
     title: "Pour and Reduce",
     description: "Spouted saucepans, sauciers, and butter warmers.",
     href: "/shop?motion=pour-and-reduce",
+    image: "/products/northline-dual-spout-saucepan-with-lid-2-quart/main.webp",
+    imageAlt: "Dual-spout saucepan for pour and reduce motion",
     filter: { processStages: ["pour", "heat"], techniques: ["reduce", "simmer", "sauce"] },
   },
   {
@@ -42,6 +48,8 @@ export const cookingMotions = [
     title: "Drain and Strain",
     description: "Pasta inserts, colanders, and chinois sets.",
     href: "/shop?motion=drain-and-strain",
+    image: "/products/northline-fine-mesh-chinois-with-stand-and-pestle/main.webp",
+    imageAlt: "Fine-mesh chinois set for drain and strain motion",
     filter: { processStages: ["drain", "finish"] },
   },
   {
@@ -49,6 +57,8 @@ export const cookingMotions = [
     title: "Slice and Portion",
     description: "Knives, shears, mandolines, and scrapers.",
     href: "/shop?motion=slice-and-portion",
+    image: "/products/northline-chef-knife-8-inch/main.webp",
+    imageAlt: "Chef knife for slice and portion motion",
     filter: { processStages: ["cut", "slice", "portion"] },
   },
   {
@@ -56,6 +66,8 @@ export const cookingMotions = [
     title: "Plate and Serve",
     description: "Serving utensils, tongs, and flatware.",
     href: "/shop?motion=plate-and-serve",
+    image: "/products/northline-linear-flatware-20-piece-service-for-4/main.webp",
+    imageAlt: "Linear flatware set for plate and serve motion",
     filter: { processStages: ["plate", "serve"] },
   },
 ] as const;

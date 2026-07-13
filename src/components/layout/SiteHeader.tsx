@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   Heart,
+  Home,
   Menu,
   Search,
   ShoppingBag,
@@ -16,8 +17,10 @@ import { primaryNav, megaMenus, customerInfoLinks, legalLinks } from "@/data/nav
 import { storeConfig } from "@/data/store-config";
 import { useCartStore, useCompareStore, useUiStore, useWishlistStore } from "@/stores";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const megaRef = useRef<HTMLDivElement>(null);
@@ -61,7 +64,7 @@ export function SiteHeader() {
           : "bg-parchment/80 backdrop-blur-sm",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 lg:px-6">
+      <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 lg:gap-4 lg:px-6">
         <button
           type="button"
           className="rounded-sm p-2 lg:hidden focus-ring"
@@ -73,8 +76,23 @@ export function SiteHeader() {
 
         <Logo priority className="shrink-0" />
 
+        <Link
+          href="/"
+          className={cn(
+            "inline-flex items-center gap-1.5 rounded-sm px-2.5 py-2 text-sm font-semibold focus-ring",
+            pathname === "/"
+              ? "bg-foundry-ink text-clean-white"
+              : "text-foundry-ink hover:bg-warm-tin/50 hover:text-tempered-blue",
+          )}
+        >
+          <Home className="h-4 w-4" aria-hidden />
+          Home
+        </Link>
+
         <nav className="hidden flex-1 items-center justify-center gap-1 xl:flex" aria-label="Primary">
-          {primaryNav.map((item) => (
+          {primaryNav
+            .filter((item) => item.href !== "/")
+            .map((item) => (
             <div
               key={item.label}
               className="relative"
@@ -84,7 +102,7 @@ export function SiteHeader() {
               <Link
                 href={item.href}
                 className="rounded-sm px-2.5 py-2 text-sm font-medium text-foundry-ink hover:text-tempered-blue focus-ring"
-                aria-expanded={openMega === item.mega}
+                aria-expanded={item.mega ? openMega === item.mega : undefined}
                 onFocus={() => item.mega && setOpenMega(item.mega)}
               >
                 {item.label}
@@ -197,6 +215,14 @@ export function SiteHeader() {
               </button>
             </div>
             <div className="flex-1 overflow-y-auto px-4 py-4">
+              <Link
+                href="/"
+                className="mb-3 flex min-h-11 w-full items-center gap-2 rounded-sm bg-foundry-ink px-3 py-3 text-sm font-semibold text-clean-white focus-ring"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Home className="h-4 w-4" aria-hidden />
+                Home
+              </Link>
               <button
                 type="button"
                 className="mb-4 flex w-full items-center gap-2 rounded-sm border border-border-alloy bg-clean-white px-3 py-3 text-left text-sm focus-ring"

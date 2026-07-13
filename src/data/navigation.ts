@@ -2,6 +2,7 @@ import { categories } from "./categories";
 import { processStages } from "./process-stages";
 
 export const primaryNav = [
+  { label: "Home", href: "/", mega: null },
   { label: "Cookware", href: "/collections/cookware", mega: "cookware" },
   { label: "Bakeware", href: "/collections/bake-roast", mega: "bake" },
   { label: "Prep Tools", href: "/collections/prep-tools", mega: "prep" },

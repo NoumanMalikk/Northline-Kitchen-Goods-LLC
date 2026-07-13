@@ -19,6 +19,12 @@ export function SiteFooter() {
         <div>
           <Logo variant="horizontal" theme="light" />
           <p className="mt-4 max-w-sm text-sm text-brushed-silver">{storeConfig.tagline}</p>
+          <Link
+            href="/"
+            className="mt-4 inline-flex min-h-11 items-center rounded-sm border border-white/25 px-4 py-2 text-sm font-semibold text-clean-white hover:bg-white/10 focus-ring"
+          >
+            Home
+          </Link>
           <p className="mt-3 text-sm text-brushed-silver">{storeConfig.publicLocationLabel}</p>
           {storeConfig.showFullBusinessAddress && (
             <p className="mt-1 text-sm text-brushed-silver">
