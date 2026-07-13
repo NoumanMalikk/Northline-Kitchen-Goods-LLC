@@ -193,11 +193,6 @@ export function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 lg:px-6">
       <h1 className="font-display text-4xl">Checkout</h1>
-      {storeConfig.storeMode === "demo" && (
-        <p className="mt-2 rounded-sm border border-tempered-blue/30 bg-tempered-blue/10 px-3 py-2 text-sm">
-          Demonstration checkout - Stripe test mode when configured. Incomplete products are labeled as demo.
-        </p>
-      )}
 
       <ol className="mt-6 flex flex-wrap gap-2 text-xs" aria-label="Checkout steps">
         {[
@@ -331,11 +326,6 @@ export function CheckoutPage() {
               <h2 className="font-display text-xl">Payment</h2>
               <p className="mt-3 text-sm">
                 Payment is processed by Stripe Checkout. Card details are never collected through ordinary form inputs on this site.
-              </p>
-              <p className="mt-2 text-xs text-graphite">
-                {storeConfig.storeMode === "demo"
-                  ? "Stripe test mode is used during development when keys are configured."
-                  : "Live mode requires verified products, shipping, tax, webhooks, and policies."}
               </p>
             </div>
           )}

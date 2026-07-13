@@ -28,11 +28,6 @@ export function ProductCard({ product }: { product: Product }) {
       <Link href={`/products/${product.slug}`} className="relative block focus-ring">
         <div className="relative aspect-square overflow-hidden bg-parchment p-4">
           <ProductImage product={product} />
-          {storeConfig.storeMode === "demo" && (
-            <span className="absolute left-3 top-3 rounded-sm bg-foundry-ink/90 px-2 py-0.5 text-[10px] uppercase tracking-wider text-clean-white">
-              Demo
-            </span>
-          )}
         </div>
       </Link>
 
@@ -49,9 +44,6 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="line-clamp-1 text-xs text-graphite">{product.materialLabel}</p>
         <p className="mt-auto font-display text-lg text-foundry-ink">
           {formatPrice(product.demoPrice)}
-          {storeConfig.storeMode === "demo" && (
-            <span className="ml-2 text-xs font-normal text-graphite">demo</span>
-          )}
         </p>
         <p className="spec-mono text-[10px] text-graphite">
           Compatibility: verification required

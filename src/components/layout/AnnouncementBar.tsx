@@ -23,11 +23,6 @@ export function AnnouncementBar() {
         <p aria-live="polite" className="min-h-5">
           {messages[index]}
         </p>
-        {storeConfig.storeMode === "demo" && (
-          <span className="hidden rounded-sm border border-brushed-silver/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-brushed-silver sm:inline">
-            Demo mode
-          </span>
-        )}
         <button
           type="button"
           className="absolute right-3 top-1/2 -translate-y-1/2 rounded-sm p-1.5 hover:bg-white/10 focus-ring"

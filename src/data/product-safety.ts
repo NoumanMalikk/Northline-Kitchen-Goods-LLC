@@ -24,7 +24,6 @@ export function canPurchaseProduct(
   if (storeMode === "demo") {
     return {
       allowed: true,
-      reason: "Demonstration mode  - incomplete products may be explored but are labeled as demo.",
     };
   }
 

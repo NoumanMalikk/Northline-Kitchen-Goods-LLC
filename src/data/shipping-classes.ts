@@ -114,7 +114,7 @@ export function calculateDemoShipping(
     amount: requiresQuote && amount === 0 ? 0 : amount,
     label: requiresQuote
       ? "Shipping review required"
-      : "Demonstration shipping (not a live carrier rate)",
+      : "Estimated shipping",
     isDemonstration: true,
     requiresQuote,
     classes: Array.from(classes),

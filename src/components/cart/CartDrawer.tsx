@@ -7,7 +7,6 @@ import { getProductById } from "@/data/products";
 import { formatPrice } from "@/lib/utils";
 import { getCartSubtotal, getLineTotal } from "@/lib/cart-math";
 import { ProductImage } from "@/components/product/ProductImage";
-import { storeConfig } from "@/data/store-config";
 
 export function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem } = useCartStore();
@@ -80,9 +79,6 @@ export function CartDrawer() {
             <span>Subtotal</span>
             <span className="font-semibold">{formatPrice(subtotal)}</span>
           </div>
-          {storeConfig.storeMode === "demo" && (
-            <p className="mb-3 text-xs text-graphite">Demonstration prices. Live checkout requires verified products.</p>
-          )}
           <div className="flex gap-2">
             <Link
               href="/cart"

@@ -79,12 +79,7 @@ export function ProductDetail({ product }: { product: Product }) {
             </p>
           )}
 
-          <p className="mt-6 font-display text-3xl">
-            {formatPrice(product.demoPrice)}
-            {storeConfig.storeMode === "demo" && (
-              <span className="ml-2 text-sm font-sans font-normal text-graphite">demonstration price</span>
-            )}
-          </p>
+          <p className="mt-6 font-display text-3xl">{formatPrice(product.demoPrice)}</p>
 
           <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
             <Spec label="Size" value={product.sizeLabel} />
@@ -227,7 +222,6 @@ export function ProductDetail({ product }: { product: Product }) {
             <p>Sharp item: {product.sharpItem ? "Yes" : "No"}</p>
             <p>Fragile lid: {product.fragileLid ? "Yes" : "No"}</p>
             <p>Package weight: {displaySpec(product.packageWeight)}</p>
-            <p className="mt-2 text-xs text-graphite">Demonstration shipping may apply until live carrier rates are configured.</p>
           </Section>
           <Section id="verification" title="Product Verification">
             <ul className="space-y-1">

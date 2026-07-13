@@ -18,12 +18,6 @@ export const faqs = [
       "Unknown product details are labeled clearly until supplier documentation, manufacturing specifications, or physical inspection confirms them. Incomplete products cannot enter live checkout.",
   },
   {
-    id: "demo-mode",
-    question: "What does demonstration mode mean?",
-    answer:
-      "In demonstration mode, prices, shipping, and checkout flows can be explored with Stripe test payments. Demonstration labels indicate that values are not production-ready.",
-  },
-  {
     id: "pickup",
     question: "Is local pickup available in Galva?",
     answer:
@@ -33,7 +27,7 @@ export const faqs = [
     id: "shipping",
     question: "How is shipping calculated?",
     answer:
-      "Shipping is calculated from destination, weight, package dimensions, quantity, and shipping class when live carrier integration is configured. Until then, clearly labeled demonstration shipping or a shipping quote is used.",
+      "Shipping is calculated from destination, weight, package dimensions, quantity, and shipping class. When a carrier quote is required, we confirm rates before fulfillment.",
   },
   {
     id: "sharp-items",

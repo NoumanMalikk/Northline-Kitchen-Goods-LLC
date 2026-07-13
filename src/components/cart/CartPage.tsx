@@ -6,7 +6,6 @@ import { getProductById } from "@/data/products";
 import { formatPrice } from "@/lib/utils";
 import { getCartSubtotal, getLineTotal } from "@/lib/cart-math";
 import { ProductImage } from "@/components/product/ProductImage";
-import { storeConfig } from "@/data/store-config";
 
 export function CartPage() {
   const { items, updateQuantity, removeItem } = useCartStore();
@@ -74,9 +73,6 @@ export function CartPage() {
               <span>Subtotal</span>
               <span className="font-display text-xl">{formatPrice(subtotal)}</span>
             </div>
-            {storeConfig.storeMode === "demo" && (
-              <p className="mt-2 text-xs text-graphite">Demonstration prices. Shipping and tax calculated at checkout.</p>
-            )}
             <ButtonLinkSafe />
           </div>
         </div>

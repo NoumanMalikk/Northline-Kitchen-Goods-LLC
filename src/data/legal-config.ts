@@ -7,7 +7,7 @@ Northline Kitchen Goods LLC respects customer privacy. This page will publish th
 These terms will govern use of the Northline Kitchen Goods LLC website and online purchases. Final commercial terms, liability language, and purchase conditions require business and legal review before production launch.`,
   shippingPolicy: `[BUSINESS REVIEW REQUIRED: insert approved policy]
 
-Shipping methods, timelines, carrier selection, sharp-item packing rules, and destination restrictions must be approved before live fulfillment. Demonstration shipping rates shown in the storefront are not live carrier quotes.`,
+Shipping methods, timelines, carrier selection, sharp-item packing rules, and destination restrictions must be approved before live fulfillment. Checkout shipping amounts are estimates until carrier quotes are confirmed.`,
   returnRefundPolicy: `[BUSINESS REVIEW REQUIRED: insert approved policy]
 
 Return windows, refund methods, restocking rules, and sharp-item return conditions must be approved before production launch. Do not treat placeholder language as an active return offer.`,
