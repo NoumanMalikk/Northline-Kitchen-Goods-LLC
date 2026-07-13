@@ -9,6 +9,7 @@ import { processStages } from "@/data/process-stages";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { TechniqueMatchPreview } from "@/components/home/TechniqueMatchPreview";
 import { KitchenFlowPreview } from "@/components/home/KitchenFlowPreview";
+import { ProcessLineHero } from "@/components/home/ProcessLineHero";
 
 const vesselIndex = [
   {
@@ -94,16 +95,6 @@ const vesselIndex = [
   },
 ];
 
-const heroSkus = [
-  "NKG-PRP-015",
-  "NKG-CUT-024",
-  "NKG-CWK-003",
-  "NKG-UTN-020",
-  "NKG-PRP-016",
-  "NKG-UTN-021",
-  "NKG-FLT-026",
-];
-
 const edgeDetails = [
   "Flared rim",
   "Straight wall",
@@ -118,9 +109,6 @@ const edgeDetails = [
 
 export function HomePage() {
   const featured = getFeaturedProducts();
-  const heroProducts = heroSkus
-    .map((sku) => products.find((p) => p.sku === sku))
-    .filter(Boolean);
   const cutPrep = products.filter((p) =>
     ["NKG-CUT-024", "NKG-CUT-025", "NKG-PRP-018", "NKG-PRP-019", "NKG-UTN-023", "NKG-PRP-015"].includes(p.sku),
   );
@@ -131,65 +119,7 @@ export function HomePage() {
 
   return (
     <>
-      {/* Process-line hero */}
-      <section className="relative overflow-hidden border-b border-border-alloy">
-        <div className="absolute inset-0 metal-grid opacity-40" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-2 lg:items-center lg:px-6 lg:py-24">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-tempered-blue">
-              Metal kitchen goods from prep to plate
-            </p>
-            <h1 className="mt-4 font-display text-4xl leading-tight text-foundry-ink sm:text-5xl lg:text-6xl">
-              Every tool has a place in the process.
-            </h1>
-            <p className="mt-5 max-w-xl text-base text-northline-steel sm:text-lg">
-              Explore cookware, preparation tools, utensils, cutlery and flatware organized around how food moves through the kitchen.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/shop">Shop Kitchen Goods</ButtonLink>
-              <ButtonLink href="/process/prepare" variant="secondary">
-                Follow the Cooking Process
-              </ButtonLink>
-            </div>
-            <p className="mt-5 max-w-lg text-xs text-graphite">
-              Materials, dimensions, compatibility and safety details must match verified product records.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-0 right-0 top-1/2 measurement-line" aria-hidden />
-            <ol className="relative grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-              {heroProducts.map((product, i) =>
-                product ? (
-                  <li key={product.id}>
-                    <Link
-                      href={`/products/${product.slug}`}
-                      className="group block border border-border-alloy bg-clean-white transition-transform duration-300 hover:-translate-y-1 focus-ring"
-                    >
-                      <div className="relative aspect-square bg-parchment p-3">
-                        <Image
-                          src={product.imageGallery[0]?.src ?? ""}
-                          alt={product.title}
-                          fill
-                          sizes="160px"
-                          className="object-contain p-2"
-                        />
-                      </div>
-                      <div className="border-t border-border-alloy p-3">
-                        <p className="spec-mono text-[10px] text-brass-marker">{String(i + 1).padStart(2, "0")}</p>
-                        <p className="mt-1 line-clamp-2 min-h-10 text-sm font-medium">{product.title}</p>
-                        <p className="mt-1 text-[11px] capitalize text-tempered-blue">
-                          {product.processStages.slice(0, 2).join(" / ")}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ) : null,
-              )}
-            </ol>
-          </div>
-        </div>
-      </section>
+      <ProcessLineHero />
 
       {/* Shop by cooking motion */}
       <section className="mx-auto max-w-7xl px-4 py-16 lg:px-6">
