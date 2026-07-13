@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --foundry-ink: #1f292d;
+  --northline-steel: #53636a;
+  --brushed-silver: #aab3b5;
+  --warm-tin: #d7d4cc;
+  --furnace-clay: #b85f42;
+  --tempered-blue: #416b78;
+  --brass-marker: #b88a45;
+  --parchment: #f4f0e7;
+  --clean-white: #ffffff;
+  --graphite: #62696b;
+  --border-alloy: #d3d2cc;
+  --background: var(--parchment);
+  --foreground: var(--foundry-ink);
+  --card: var(--clean-white);
+  --muted: var(--warm-tin);
+  --accent: var(--furnace-clay);
+  --ring: var(--tempered-blue);
+}
+
+@theme inline {
+  --color-foundry-ink: var(--foundry-ink);
+  --color-northline-steel: var(--northline-steel);
+  --color-brushed-silver: var(--brushed-silver);
+  --color-warm-tin: var(--warm-tin);
+  --color-furnace-clay: var(--furnace-clay);
+  --color-tempered-blue: var(--tempered-blue);
+  --color-brass-marker: var(--brass-marker);
+  --color-parchment: var(--parchment);
+  --color-clean-white: var(--clean-white);
+  --color-graphite: var(--graphite);
+  --color-border-alloy: var(--border-alloy);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+.spec-mono {
+  font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--tempered-blue) 28%, white);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--tempered-blue);
+  outline-offset: 2px;
+}
+
+.metal-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border-alloy) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border-alloy) 55%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.measurement-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--brass-marker),
+    transparent
+  );
+  height: 1px;
+}

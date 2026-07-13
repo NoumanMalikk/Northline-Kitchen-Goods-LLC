@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Northline Kitchen Goods monogram">
+  <rect x="2" y="2" width="60" height="60" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M16 46 V18 H22 L36 38 V18 H42 V46 H36 L22 26 V46 Z" fill="#FFFFFF"/>
+  <line x1="14" y1="50" x2="50" y2="50" stroke="#AAB3B5" stroke-width="2"/>
+  <path d="M44 18 L52 32 L44 46" fill="none" stroke="#B85F42" stroke-width="2.5" stroke-linecap="square"/>
+</svg>

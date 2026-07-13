@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 72" role="img" aria-label="Northline Kitchen Goods">
+  <text x="0" y="38" font-family="system-ui, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="4" fill="currentColor">NORTHLINE</text>
+  <line x1="0" y1="46" x2="280" y2="46" stroke="currentColor" stroke-width="2"/>
+  <text x="0" y="64" font-family="system-ui, Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="3.5" fill="currentColor">KITCHEN GOODS</text>
+</svg>

@@ -1,0 +1,61 @@
+export const techniques = [
+  { id: "sear", name: "Sear", description: "High-heat surface contact for browning." },
+  { id: "saute", name: "Sauté", description: "Quick cooking with frequent movement." },
+  { id: "simmer", name: "Simmer", description: "Gentle heat below a rolling boil." },
+  { id: "reduce", name: "Reduce", description: "Concentrate liquids through evaporation." },
+  { id: "boil", name: "Boil", description: "Full rolling boil in a deep vessel." },
+  { id: "steam", name: "Steam", description: "Cook with vapor using inserts when verified." },
+  { id: "braise", name: "Braise", description: "Combined sear and covered moist heat." },
+  { id: "roast", name: "Roast", description: "Dry oven heat in open or covered pans." },
+  { id: "griddle", name: "Griddle", description: "Broad flat-surface cooking." },
+  { id: "stir-fry", name: "Stir-fry", description: "High-heat tossing in a curved vessel." },
+  { id: "pan-fry", name: "Pan-fry", description: "Shallow oil cooking in a fry pan." },
+  { id: "bake", name: "Bake", description: "Oven baking on sheet or roasting pans." },
+  { id: "slice", name: "Slice", description: "Controlled cutting and portioning." },
+  { id: "portion", name: "Portion", description: "Divide prepared food for service." },
+] as const;
+
+export const cookingMotions = [
+  {
+    id: "lift-and-turn",
+    title: "Lift and Turn",
+    description: "Turners, tongs, and flat heat surfaces.",
+    href: "/shop?motion=lift-and-turn",
+    filter: { processStages: ["turn", "lift"], techniques: ["sear", "griddle", "pan-fry"] },
+  },
+  {
+    id: "stir-and-fold",
+    title: "Stir and Fold",
+    description: "Sauciers, woks, and sauce utensils.",
+    href: "/shop?motion=stir-and-fold",
+    filter: { processStages: ["stir"], techniques: ["saute", "stir-fry", "sauce"] },
+  },
+  {
+    id: "pour-and-reduce",
+    title: "Pour and Reduce",
+    description: "Spouted saucepans, sauciers, and butter warmers.",
+    href: "/shop?motion=pour-and-reduce",
+    filter: { processStages: ["pour", "heat"], techniques: ["reduce", "simmer", "sauce"] },
+  },
+  {
+    id: "drain-and-strain",
+    title: "Drain and Strain",
+    description: "Pasta inserts, colanders, and chinois sets.",
+    href: "/shop?motion=drain-and-strain",
+    filter: { processStages: ["drain", "finish"] },
+  },
+  {
+    id: "slice-and-portion",
+    title: "Slice and Portion",
+    description: "Knives, shears, mandolines, and scrapers.",
+    href: "/shop?motion=slice-and-portion",
+    filter: { processStages: ["cut", "slice", "portion"] },
+  },
+  {
+    id: "plate-and-serve",
+    title: "Plate and Serve",
+    description: "Serving utensils, tongs, and flatware.",
+    href: "/shop?motion=plate-and-serve",
+    filter: { processStages: ["plate", "serve"] },
+  },
+] as const;
