@@ -1,6 +1,6 @@
 # Northline Kitchen Goods LLC
 
-Customer-facing e-commerce storefront for metal kitchen goods — cookware, bakeware, prep tools, utensils, cutlery, and flatware — organized around the cooking process.
+Customer-facing e-commerce storefront for metal kitchen goods  - cookware, bakeware, prep tools, utensils, cutlery, and flatware  - organized around the cooking process.
 
 ## Brand
 
@@ -22,13 +22,13 @@ npm run dev
 
 ## Scripts
 
-- `npm run dev` — local development
-- `npm run build` — production build
-- `npm run typecheck` — TypeScript
-- `npm run lint` — ESLint
-- `npm run test` — unit tests
-- `npm run test:e2e` — Playwright
-- `npm run qa` — typecheck + lint + unit tests + build
+- `npm run dev`  - local development
+- `npm run build`  - production build
+- `npm run typecheck`  - TypeScript
+- `npm run lint`  - ESLint
+- `npm run test`  - unit tests
+- `npm run test:e2e`  - Playwright
+- `npm run qa`  - typecheck + lint + unit tests + build
 
 ## Important constraints
 

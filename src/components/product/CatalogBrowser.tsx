@@ -62,7 +62,7 @@ export function CatalogBrowser({
   const materials = useMemo(
     () =>
       Array.from(
-        new Set(products.flatMap((p) => p.materials.map((m) => m.split("—")[0].trim()))),
+        new Set(products.flatMap((p) => p.materials.map((m) => m.split(" - ")[0].trim()))),
       ).sort(),
     [products],
   );
@@ -130,8 +130,8 @@ export function CatalogBrowser({
             <option value="newest">Newest catalog additions</option>
             <option value="price-asc">Price low to high</option>
             <option value="price-desc">Price high to low</option>
-            <option value="name-asc">Name A–Z</option>
-            <option value="name-desc">Name Z–A</option>
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
             <option value="diameter-asc">Diameter low to high</option>
             <option value="capacity-asc">Capacity low to high</option>
             <option value="length-asc">Total length low to high</option>

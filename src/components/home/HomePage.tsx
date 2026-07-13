@@ -302,13 +302,13 @@ export function HomePage() {
           <div>
             <h2 className="font-display text-3xl">The final line from kitchen to table.</h2>
             <p className="mt-3 text-northline-steel">
-              Flatware place-setting structure, piece names, and set counts — without unverified restaurant-grade or dishwasher claims.
+              Flatware place-setting structure, piece names, and set counts  - without unverified restaurant-grade or dishwasher claims.
             </p>
             {flatware && (
               <ul className="mt-6 space-y-2 text-sm">
                 {flatware.packageContents.map((c) => (
                   <li key={c} className="flex gap-2">
-                    <span className="text-brass-marker">—</span> {c}
+                    <span className="text-brass-marker">•</span> {c}
                   </li>
                 ))}
               </ul>

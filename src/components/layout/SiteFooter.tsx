@@ -17,7 +17,7 @@ export function SiteFooter() {
     <footer className="mt-20 border-t border-border-alloy bg-foundry-ink text-clean-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <Logo variant="horizontal" className="brightness-0 invert" />
+          <Logo variant="horizontal" theme="light" />
           <p className="mt-4 max-w-sm text-sm text-brushed-silver">{storeConfig.tagline}</p>
           <p className="mt-3 text-sm text-brushed-silver">{storeConfig.publicLocationLabel}</p>
           {storeConfig.showFullBusinessAddress && (

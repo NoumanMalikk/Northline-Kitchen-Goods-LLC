@@ -35,7 +35,7 @@ export function KitchenFlowBuilderPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 lg:px-6">
       <h1 className="font-display text-4xl">Kitchen flow builder</h1>
       <p className="mt-3 max-w-2xl text-northline-steel">
-        Create a workflow from prep to serve. Each product is added separately — no fake bundle SKU or invented savings.
+        Create a workflow from prep to serve. Each product is added separately  - no fake bundle SKU or invented savings.
       </p>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
@@ -79,7 +79,7 @@ export function KitchenFlowBuilderPage() {
           <div>
             <p className="text-sm text-graphite">{selectedProducts.length} tools selected</p>
             <p className="font-display text-2xl">Combined total {formatPrice(total)}</p>
-            <p className="text-xs text-graphite">Sum of individual demo prices — not a discounted bundle.</p>
+            <p className="text-xs text-graphite">Sum of individual demo prices  - not a discounted bundle.</p>
           </div>
           <Button
             disabled={selectedProducts.length === 0}

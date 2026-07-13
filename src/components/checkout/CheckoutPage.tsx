@@ -16,6 +16,7 @@ export function CheckoutPage() {
   const items = useCartStore((s) => s.items);
   const clearCart = useCartStore((s) => s.clearCart);
   const [step, setStep] = useState<Step>(1);
+  const [maxReached, setMaxReached] = useState<Step>(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
@@ -53,6 +54,73 @@ export function CheckoutPage() {
 
   function update<K extends keyof typeof form>(key: K, value: (typeof form)[K]) {
     setForm((f) => ({ ...f, [key]: value }));
+  }
+
+  function validateStep(current: Step): string | null {
+    switch (current) {
+      case 1:
+        if (!form.email.trim() || !form.email.includes("@")) return "Enter a valid email.";
+        if (!form.firstName.trim()) return "Enter your first name.";
+        if (!form.lastName.trim()) return "Enter your last name.";
+        return null;
+      case 2:
+        if (!form.line1.trim()) return "Enter address line 1.";
+        if (!form.city.trim()) return "Enter a city.";
+        if (!form.state.trim()) return "Enter a state.";
+        if (!form.postalCode.trim()) return "Enter a ZIP code.";
+        if (!form.country.trim()) return "Enter a country.";
+        return null;
+      case 3:
+        if (!summary.validation.valid) {
+          return (
+            summary.validation.results.flatMap((r) => r.errors).join(" ") ||
+            "Cart validation failed."
+          );
+        }
+        return null;
+      case 4:
+        if (summary.shipping.requiresQuote) {
+          return "One or more items require a shipping quote before continuing.";
+        }
+        return null;
+      case 5:
+        if (
+          !form.billingSame &&
+          (!form.billingLine1.trim() ||
+            !form.billingCity.trim() ||
+            !form.billingState.trim() ||
+            !form.billingPostalCode.trim())
+        ) {
+          return "Complete the billing address or choose same as shipping.";
+        }
+        return null;
+      case 6:
+      case 7:
+      case 8:
+        return null;
+      case 9:
+        return null;
+      default:
+        return null;
+    }
+  }
+
+  function goToStep(target: Step) {
+    if (target > maxReached) return;
+    setError("");
+    setStep(target);
+  }
+
+  function continueToNext() {
+    const message = validateStep(step);
+    if (message) {
+      setError(message);
+      return;
+    }
+    setError("");
+    const next = Math.min(9, step + 1) as Step;
+    setMaxReached((current) => (next > current ? next : current));
+    setStep(next);
   }
 
   async function createCheckout() {
@@ -127,22 +195,50 @@ export function CheckoutPage() {
       <h1 className="font-display text-4xl">Checkout</h1>
       {storeConfig.storeMode === "demo" && (
         <p className="mt-2 rounded-sm border border-tempered-blue/30 bg-tempered-blue/10 px-3 py-2 text-sm">
-          Demonstration checkout — Stripe test mode when configured. Incomplete products are labeled as demo.
+          Demonstration checkout - Stripe test mode when configured. Incomplete products are labeled as demo.
         </p>
       )}
 
-      <ol className="mt-6 flex flex-wrap gap-2 text-xs">
-        {["Customer", "Shipping", "Validation", "Shipping method", "Billing", "Tax", "Payment", "Review", "Agreements"].map((label, i) => (
-          <li key={label}>
-            <button
-              type="button"
-              className={`rounded-sm px-2 py-1 focus-ring ${step === i + 1 ? "bg-foundry-ink text-clean-white" : "bg-warm-tin/50"}`}
-              onClick={() => setStep((i + 1) as Step)}
-            >
-              {i + 1}. {label}
-            </button>
-          </li>
-        ))}
+      <ol className="mt-6 flex flex-wrap gap-2 text-xs" aria-label="Checkout steps">
+        {[
+          "Customer",
+          "Shipping",
+          "Validation",
+          "Shipping method",
+          "Billing",
+          "Tax",
+          "Payment",
+          "Review",
+          "Agreements",
+        ].map((label, i) => {
+          const stepNumber = (i + 1) as Step;
+          const isActive = step === stepNumber;
+          const isUnlocked = stepNumber <= maxReached;
+          const isComplete = stepNumber < step && stepNumber <= maxReached;
+          return (
+            <li key={label}>
+              <button
+                type="button"
+                disabled={!isUnlocked}
+                aria-current={isActive ? "step" : undefined}
+                aria-disabled={!isUnlocked}
+                title={isUnlocked ? label : `Complete previous steps to unlock ${label}`}
+                className={`rounded-sm px-2 py-1 focus-ring ${
+                  isActive
+                    ? "bg-foundry-ink text-clean-white"
+                    : isComplete
+                      ? "bg-tempered-blue/15 text-foundry-ink"
+                      : isUnlocked
+                        ? "bg-warm-tin/50 text-foundry-ink"
+                        : "cursor-not-allowed bg-warm-tin/30 text-graphite opacity-60"
+                }`}
+                onClick={() => goToStep(stepNumber)}
+              >
+                {stepNumber}. {label}
+              </button>
+            </li>
+          );
+        })}
       </ol>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
@@ -288,12 +384,12 @@ export function CheckoutPage() {
 
           <div className="flex gap-3 pt-4">
             {step > 1 && (
-              <Button variant="secondary" type="button" onClick={() => setStep((s) => (s - 1) as Step)}>
+              <Button variant="secondary" type="button" onClick={() => goToStep((step - 1) as Step)}>
                 Back
               </Button>
             )}
             {step < 9 ? (
-              <Button type="button" onClick={() => setStep((s) => (s + 1) as Step)}>
+              <Button type="button" onClick={continueToNext}>
                 Continue
               </Button>
             ) : (

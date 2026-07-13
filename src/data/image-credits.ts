@@ -5,7 +5,7 @@ export const imageCredits = products.map((product) => ({
   sku: product.sku,
   exactSize: product.sizeLabel,
   exactCapacity: product.capacity === null ? "Not applicable" : String(product.capacity),
-  exactFinish: "Studio visual — physical finish pending verification",
+  exactFinish: "Studio visual  - physical finish pending verification",
   exactPieceCount: product.packageContents.length,
   exactPackageContents: product.packageContents,
   sourceOrganization: "Northline development product photography set",

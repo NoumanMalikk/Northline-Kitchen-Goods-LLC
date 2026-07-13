@@ -14,7 +14,7 @@ export async function sendOrderConfirmationEmail(order: StoredOrder) {
   const items = order.products
     .map(
       (p) =>
-        `<li>${p.title} (${p.sku}) — ${p.size} — qty ${p.quantity} — $${p.lineTotal.toFixed(2)}</li>`,
+        `<li>${p.title} (${p.sku})  - ${p.size}  - qty ${p.quantity}  - $${p.lineTotal.toFixed(2)}</li>`,
     )
     .join("");
 

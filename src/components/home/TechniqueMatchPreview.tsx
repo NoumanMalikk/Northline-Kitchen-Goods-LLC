@@ -43,7 +43,7 @@ export function KitchenFlowPreview() {
         <div>
           <h2 className="font-display text-3xl">Kitchen flow builder</h2>
           <p className="mt-3 max-w-2xl text-northline-steel">
-            Build a prep-to-serve workflow with exact catalog items. Each product adds separately to the cart — no fake bundle SKUs or invented savings.
+            Build a prep-to-serve workflow with exact catalog items. Each product adds separately to the cart  - no fake bundle SKUs or invented savings.
           </p>
         </div>
         <ButtonLink href="/kitchen-flow-builder">Build a kitchen flow</ButtonLink>
